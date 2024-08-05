@@ -13,7 +13,7 @@
             margin: 0;
             padding: 0;
             background-color: #ffecd1;
-            overflow: auto;
+            overflow: hidden;
         }
         .container {
             max-width: 90%;
@@ -62,20 +62,21 @@
             to { color: #ff9f80; }
         }
         .hearts {
-            position: absolute;
+            position: fixed;
             width: 100%;
             height: 100%;
             top: 0;
             left: 0;
             overflow: hidden;
             z-index: 1;
+            pointer-events: none;
         }
         .heart {
             position: absolute;
             width: 20px;
             height: 20px;
             background-color: #ff6f61;
-            opacity: 0.7;
+            opacity: 0.8;
             transform: rotate(45deg);
             animation: float 6s infinite linear;
         }
@@ -96,9 +97,21 @@
             top: 0;
         }
         @keyframes float {
-            0% { transform: translateY(-100vh) rotate(45deg); opacity: 0; }
+            0% { transform: translateY(-20vh) rotate(45deg); opacity: 0.8; }
             50% { opacity: 0.9; }
-            100% { transform: translateY(100vh) rotate(45deg); opacity: 0.7; }
+            100% { transform: translateY(120vh) rotate(45deg); opacity: 0.8; }
+        }
+        @media (max-width: 600px) {
+            .container {
+                margin: 50px auto 0;
+                padding: 10px;
+            }
+        }
+        footer {
+            margin-top: 20px;
+            padding: 10px 0;
+            position: relative;
+            z-index: 2;
         }
     </style>
 </head>
@@ -111,14 +124,16 @@
         Your love and support mean the world to me, and I can't imagine my life without you. I feel so lucky to have you by my side and look forward to sharing many more years of laughter, love, and happiness with you.
         Here's to celebrating you today and every day. I love you more than words can express. Cheers to many more years together.
     </p>
-    <p>With all my love , your babe
-        Adeepa</p>
+    <p>With all my love, your babe Adeepa</p>
 </div>
 <div class="sound-icon" onclick="playSong()">
     <img src="https://img.icons8.com/ios-filled/50/000000/musical-notes.png" alt="Play Music">
 </div>
 <audio id="loveSong" src="W.mp3" preload="auto"></audio>
 <div class="hearts"></div>
+<footer>
+    Made with love, AK
+</footer>
 <script>
     function playSong() {
         const loveSong = document.getElementById('loveSong');
